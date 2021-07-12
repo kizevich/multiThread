@@ -24,7 +24,8 @@ public class BookWriter implements Runnable{
         synchronized (locker) {
             for (int i = 1; i < random.nextInt(111); i++) {
                 try {
-                    fw.write("nm ");
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.write("nm ");
                     System.out.println("writing...");
                     locker.notify();
                 } catch (IOException e) {
